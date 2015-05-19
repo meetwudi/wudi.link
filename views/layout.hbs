@@ -6,5 +6,11 @@
   </head>
   <body>
     {{{body}}}
+
+    <script src="//cdn.staticfile.org/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="//cdn.staticfile.org/backbone.js/1.1.2/backbone-min.js"></script>
+    {{#each scripts}}
+    <script src="/javascripts/{{this}}.js"></script>
+    {{/each}}
   </body>
 </html>
