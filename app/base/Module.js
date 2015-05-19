@@ -1,3 +1,6 @@
+var Wrapper = require('./Wrapper'),
+  util = require('./util');
+
 /**
  * Module
  *
@@ -15,7 +18,7 @@ function Module(config) {
   // module
   for (var methodName in config) {
     if (config.hasOwnProperty(methodName) &&
-      Util.isFunction(config[methodName])) {
+      util.isFunction(config[methodName])) {
       this._methods[methodName] = config[methodName];
     }
   }

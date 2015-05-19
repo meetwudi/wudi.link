@@ -1,3 +1,5 @@
+var util = require('./util');
+
 /**
  * Module wrapper
  *
@@ -5,7 +7,7 @@
  */
 function Wrapper(el, methods) {
   this.el = el;
-  Util.merge(methods).to(targetObj);
+  util.merge(methods).to(this);
 }
 
 module.exports = Wrapper;
