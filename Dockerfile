@@ -10,8 +10,7 @@ COPY . /src
 RUN cd /src; npm install
 
 RUN npm install -g pm2
-RUN npm install -g nodemon
 
 EXPOSE  3000
 
-CMD ["pm2", "start", "/src/bin/www"]
+CMD ["pm2", "start", "/src/bin/www", "--watch"]
