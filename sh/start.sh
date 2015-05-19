@@ -1,0 +1,1 @@
+docker run -t -i -d -p 8080:3000 -v $(pwd):/src tjwudi/wudi-link /bin/bash
