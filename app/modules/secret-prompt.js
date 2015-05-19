@@ -12,7 +12,6 @@ var secretPromptFactory = new wd.Module({
     [].slice.call(that.submits).forEach(function(submit) {
       submit.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log(new FormData(that.form));
         fetch('/api/secret', {
           method: 'post',
           body: new FormData(that.form)
