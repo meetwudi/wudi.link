@@ -1,0 +1,6 @@
+@import "variables";
+
+.f-font-size(@size-px) {
+  font-size: e(%("%dpx", @size-px));
+  font-size: e(%("%drem", @size-px / @base-font-size));
+}
