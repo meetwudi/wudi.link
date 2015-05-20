@@ -1,4 +1,8 @@
-var wd = require('../base');
+var wd = require('../base'),
+  serialize = require('form-serialize');
+
+/* fetch polyfill */
+require('whatwg-fetch');
 
 var secretPromptFactory = new wd.Module({
   didAttach: function() {
@@ -13,8 +17,12 @@ var secretPromptFactory = new wd.Module({
       submit.addEventListener('click', function(e) {
         e.preventDefault();
         fetch('/api/secret', {
-          method: 'post',
-          body: new FormData(that.form)
+          method: 'POST',
+          headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: serialize(that.form)
         }).then(function(response) {
           return response.json();
         }).then(function(result) {
