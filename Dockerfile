@@ -13,4 +13,4 @@ RUN npm install -g pm2
 
 EXPOSE  3000
 
-CMD ["pm2", "start", "/src/bin/www", "--watch"]
+CMD ["pm2", "start", "/src/pm2.json"]
