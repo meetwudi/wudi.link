@@ -1,0 +1,11 @@
+{
+  "apps" : [{
+    "name"        : "wudi-link",
+    "script"      : "bin/www",
+    "watch"       : true,
+    "node_args"   : "--harmony",
+    "merge_logs"  : true,
+    "cwd"         : "/src",
+    "watch"       : true
+  }]
+}
