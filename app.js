@@ -20,7 +20,7 @@ app.set('view engine', 'hbs');
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.use(session({
-  secret: 'abcdefg1233321',
+  secret: 'ecakn2kienu1i2ni123n1il2n3u1i2l3nj1',
   cookie: {
     maxAge: 3600000
   }
