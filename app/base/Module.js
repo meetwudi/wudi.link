@@ -31,6 +31,7 @@ function Module(config) {
  * @return {Wrapper}    - Module wrapper
  */
 Module.prototype.attach = function(el) {
+  if (!el) return null;
   var wrapper = new Wrapper(el, this._methods);
 };
 

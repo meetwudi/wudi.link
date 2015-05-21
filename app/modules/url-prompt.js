@@ -4,34 +4,30 @@ var wd = require('../base'),
 /* fetch polyfill */
 require('whatwg-fetch');
 
-var secretPromptFactory = new wd.Module({
+var urlPromptFactory = new wd.Module({
   didAttach() {
-    this.submits = document.querySelectorAll('[data-submit="secret"]');
+    this.submits = document.querySelectorAll('[data-submit="url"]');
     this.form = this.el.querySelector('.form');
     this.bindEvents();
   },
 
   bindEvents() {
-    var that = this;
-    [].slice.call(that.submits).forEach(function(submit) {
-      submit.addEventListener('click', function(e) {
+    [].slice.call(this.submits).forEach((submit) => {
+      submit.addEventListener('click', (e) => {
         e.preventDefault();
-        fetch('/api/secret', {
+        fetch('/api/shorten', {
           method: 'POST',
           headers: {
             'Accept': '*/*',
             'Content-Type': 'application/x-www-form-urlencoded'
           },
-          body: serialize(that.form)
-        }).then(function(response) {
-          return response.json();
-        }).then(function(result) {
-          if (result.verified) {
-            that.showNext();
-          }
-        }).catch(function(ex) {
-          console.log(ex);
-        });
+          body: serialize(this.form)
+        }).
+        then((response) => response.json()).
+        then((result) => {
+          console.log(result);
+        }).
+        catch((ex) => console.err(ex));
       });
     });
   },
@@ -44,4 +40,4 @@ var secretPromptFactory = new wd.Module({
   }
 });
 
-module.exports = secretPromptFactory;
+module.exports = urlPromptFactory;
