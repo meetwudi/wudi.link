@@ -1,4 +1,5 @@
 require('dotenv').load();
+require('./lib/db');
 
 var express = require('express');
 var path = require('path');
