@@ -1,2 +1,11 @@
 #!/bin/bash
-docker run --name wudi-link -t -i -d -p 8080:3000 -v $(pwd):/src tjwudi/wudi-link /bin/bash
+docker run --name wudi-link-mongo -d mongo
+
+CONTAINER_ID=$(docker run --name wudi-link \
+  --link wudi-link-mongo:wudi-link-mongo \
+  -t -i -d \
+  -p 8080:3000 \
+  -v $(pwd):/src tjwudi/wudi-link \
+  /bin/bash)
+
+docker exec $CONTAINER_ID /bin/bash -c "pm2 start /src/pm2.json"
