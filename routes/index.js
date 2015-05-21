@@ -5,7 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res) {
   res.render('index', { 
     title: 'wudi.link portal', 
-    scripts: ['app'] 
+    scripts: ['app'],
+    csrfToken: req.csrfToken()
   });
 });
 
