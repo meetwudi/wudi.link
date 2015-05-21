@@ -1,6 +1,9 @@
 var wd = require('../base'),
   serialize = require('form-serialize'),
-  fetch = wd.net.fetch;
+  fetch = wd.net.fetch,
+  urlShowFactory = require('./url-show');
+
+var urlShow = urlShowFactory.attach(document.querySelector('#url-show'));
 
 var urlPromptFactory = new wd.Module({
   didAttach() {
@@ -23,9 +26,12 @@ var urlPromptFactory = new wd.Module({
         }).
         then((response) => response.json()).
         then((result) => {
-          console.log(result);
+          if (result && result.hash) {
+            urlShow.trigger('item', result);
+            this.showNext();
+          }
         }).
-        catch((ex) => console.err(ex));
+        catch((ex) => console.error(ex));
       });
     });
   },

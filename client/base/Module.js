@@ -33,6 +33,7 @@ function Module(config) {
 Module.prototype.attach = function(el) {
   if (!el) return null;
   var wrapper = new Wrapper(el, this._methods);
+  return wrapper;
 };
 
 module.exports = Module;
