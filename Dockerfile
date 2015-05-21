@@ -16,8 +16,8 @@ RUN cd /src; npm install
 RUN npm install -g pm2
 RUN npm install -g nodemon
 RUN npm install -g grunt-cli
+RUN grunt build
 
 EXPOSE  3000
 
-CMD ["grunt", "build"]
 CMD ["pm2", "start", "/src/pm2.json"]
