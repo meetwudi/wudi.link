@@ -40,6 +40,12 @@ router.post('/shorten', function(req, res) {
   });
 });
 
-
+router.get('hash/:hash', function(req, res) {
+  item.find(req.params.hash, function(err, item) {
+    if (err) { return res.status(400).json(err); }
+    if (!item) { return res.status(404).end(); }
+    return res.json(item);
+  });
+});
 
 module.exports = router;
