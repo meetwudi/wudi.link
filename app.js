@@ -21,8 +21,9 @@ app.set('view engine', 'hbs');
 
 app.use(session({
   secret: 'abcdefg1233321',
-  saveUninitialized: true, 
-  resave: true
+  cookie: {
+    maxAge: 3600000
+  }
 }));
 app.use(logger('dev'));
 app.use(bodyParser.json());

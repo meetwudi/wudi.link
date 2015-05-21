@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var verify = require('../lib/middlewares/verify')();
 
 /* Secret API */
 router.post('/secret', function(req, res) {
@@ -22,6 +23,13 @@ router.get('/secret', function(req, res) {
   res.json({
     verified: !!req.session.verified
   });
+});
+
+router.use(verify);
+
+/* Url API */
+router.post('/shorten', function(req, res) {
+  res.json({state: 'ok'});
 });
 
 module.exports = router;
