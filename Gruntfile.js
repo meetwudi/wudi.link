@@ -7,6 +7,9 @@ module.exports = function(grunt) {
         files: {
           'public/javascripts/app.js': ['app/app.js']
         }
+      },
+      options: {
+        transform: ['traceurify']
       }
     },
 
