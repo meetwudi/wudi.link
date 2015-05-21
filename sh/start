@@ -1,6 +1,4 @@
 #!/bin/bash
-docker run --name wudi-link-mongo -d mongo
-
 CONTAINER_ID=$(docker run --name wudi-link \
   --link wudi-link-mongo:wudi-link-mongo \
   -t -i -d \
