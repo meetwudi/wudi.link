@@ -30,12 +30,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) {
-    next();
-    res.set('Access-Control-Allow-Credentials', true);
-    res.set('Access-Control-Allow-Origin', '*');
-    res.set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-});
 app.use(csurf());
 app.use('/api', require('./routes/api'));
 app.use('/', require('./routes/index'));
