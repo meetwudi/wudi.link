@@ -7,7 +7,7 @@ var urlShowFactory = new wd.Module({
 
   bindEvents() {
     this.on('item', (item) => {
-      var url = location.protocol + '/' + location.host + '/' + item.hash;
+      var url = location.protocol + '//' + location.host + '/' + item.hash;
       this.el.querySelector('[name="url-show"]').setAttribute('value', url);
     });
   }
