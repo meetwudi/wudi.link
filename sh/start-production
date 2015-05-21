@@ -2,7 +2,7 @@
 CONTAINER_ID=$(docker run --name wudi-link \
   --link wudi-link-mongo:wudi-link-mongo \
   -t -i -d \
-  -p 8080:3000 tjwudi/wudi-link \
+  -p 80:3000 tjwudi/wudi-link \
   /bin/bash)
 
 docker exec $CONTAINER_ID /bin/bash -c "pm2 start /src/pm2.json"
