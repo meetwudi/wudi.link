@@ -5,7 +5,6 @@
   <div class="container">
     <section class="step step-visible" id="secret-prompt">
       <form action="" data-prompt="secret" class="form">
-        <input type="hidden" name="_csrf" value="{{csrfToken}}"/>
         <label for="secret" class="form-label">Tell me your secret</label>
         <div class="form-input-group">
           <input type="password" name="secret" class="form-input" placeholder="Enter your secret here" autocomplete="off"/>
@@ -18,7 +17,6 @@
 
     <section class="step">
       <form action="" data-prompt="url" class="form">
-        <input type="hidden" name="_csrf" value="{{csrfToken}}"/>
         <label for="url" class="form-label">Enter the URL you want to shorten</label>
         <div class="form-input-group">
           <input type="text" name="url" class="form-input" placeholder="Enter original URL here" autocomplete="off"/>

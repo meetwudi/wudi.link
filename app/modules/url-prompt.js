@@ -1,8 +1,6 @@
 var wd = require('../base'),
-  serialize = require('form-serialize');
-
-/* fetch polyfill */
-require('whatwg-fetch');
+  serialize = require('form-serialize'),
+  fetch = wd.net.fetch;
 
 var urlPromptFactory = new wd.Module({
   didAttach() {
