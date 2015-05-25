@@ -12,6 +12,8 @@ RUN     yum install -y npm
 RUN     yum install -y git-core
 
 COPY . /src
+
+# Install node modules
 RUN cd /src; npm install
 RUN npm install -g pm2
 RUN npm install -g nodemon
